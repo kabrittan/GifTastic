@@ -1,21 +1,41 @@
 <!DOCTYPE html>
-<html lang="en-us">
-	<head>
-		<meta charset="utf-8">
-		<title>GifTastic</title>
-		<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	</head>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>GifTastic</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  </head>
 
-	<body>
-				
-		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-		<script type="text/javascript"
+  <body>
+    <div id="animalButtons"></div>
 
+    <form id="animal-form">
+      <label for="animal-input">Add an animal</label>
+      <input type="text" id="animal-input">
+      <input id="addAnimal" type="submit" value="submit">
+    </form>
 
-		</script>
+    <div id="animals"></div>
 
-	</body>
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
 
+    
+    <script type="text/javascript">
+
+    
+
+    </script>
+  </body>
 </html>
+
+// Example queryURL for Giphy API
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=monkey&limit=5&api_key=dc6zaTOxFJmzC ";
+    $.ajax({
+      url: queryURL,
+      method: 'GET'
+    }).done(function(response) {
+      console.log(response);
+    });
