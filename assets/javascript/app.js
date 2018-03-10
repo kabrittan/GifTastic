@@ -1,12 +1,16 @@
-// Initial array
-    var topics = ["dogs","cats","birds", "fish"];
+$(document).ready(function() {
+  // Initial array
+  var animals = [
+    "dog", "cat", "rabbit", "hamster", "fish",
+    "bird", "chicken", "horse"
+  ];
 
   // Capture topic name
-  function displayTopicName() {        
+  function displayAnimals() {        
     
-    $("#animalButtons").on("click", function() {  
+    $("#animal-buttons").on("click", function() {  
        
-       var topicName = $(this).attr("animal-input");
+       var animalName = $(this).attr("animal-input");
        var queryURL =  "http://api.giphy.com/v1/gifs/search?q=" + topicName + "&api_key=dc6zaTOxFJmzC&limit=10";     
 
           $.ajax({
@@ -43,4 +47,3 @@
     });
 
   };
-
