@@ -5,6 +5,18 @@ $(document).ready(function() {
     "bird", "chicken", "horse"
   ];
 
+function populateButtons(arrayToUse, classToAdd, areaToAddTo) {
+  $(areaToAddTo).empty();
+
+  for (var i = 0; i < arrayToUse.length; i++) {
+    var a = $("<button>");
+    a.addClass(classToAdd);
+    a.attr("data-type", arrayToUse[i]);
+    a.text(arrayToUse[i]);
+    $(areaToAddTo).append(a);
+  }
+}
+
   // Capture topic name
   function displayAnimals() {        
     
