@@ -1,6 +1,6 @@
 body {
   font: 18px arial, sans-serif;
-  background: #eee;
+  background: rgb(223, 189, 189);
 }
 
 #animals {
@@ -36,9 +36,9 @@ input[type="submit"] {
   padding: 5px 20px;
   margin: 0 10px 10px 0;
   font-size: 18px;
-  color: #fff;
+  color: rgb(19, 18, 18);
   cursor: pointer;
-  background: #659a98;
+  background: #7363cc;
   border: 0;
   border-radius: 5px;
   box-shadow: 2px 2px 3px #bbb;
@@ -46,9 +46,9 @@ input[type="submit"] {
 
 button:hover,
 input[type="submit"]:hover {
-  background: #334e4d;
+  background: #5daaa8;
 }
 
 button.active {
-  background: #334e4d;
+  background: #215f5d;
 }

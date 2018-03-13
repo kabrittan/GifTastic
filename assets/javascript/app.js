@@ -3,10 +3,10 @@ $(document).ready(function() {
   // Initial array
   var animals = [
     "dog", "cat", "rabbit", "hamster", "fish",
-    "bird", "chicken", "horse"
+    "bird", "chicken", "horse", "pig", "cow"
   ];
 
-  //Function to add buttons
+  //Function to make and add buttons
 function addButtons(addArray, addClass, addArea) {
   $(addArea).empty();
 
@@ -18,15 +18,17 @@ function addButtons(addArray, addClass, addArea) {
     $(addArea).append(a);
   }
 }
-
+//On.click event listener 
 $(document).on("click", ".animal-button", function() {
   $("#animals").empty();
   $(".animal-button").removeClass("active");
   $(this).addClass("active");
 
+//Query to the Giphy API
   var type = $(this).attr("data-type");
-  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=itTkLNd9VySjmRs9AtyZND1gkhoNKanq";
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + type + "&limit=10&api_key=itTkLNd9VySjmRs9AtyZND1gkhoNKanq";
 
+  //Ajax call to pull in new animal
   $.ajax({
     url: queryURL,
     method: "GET"
@@ -36,11 +38,8 @@ $(document).on("click", ".animal-button", function() {
 
     for (var i = 0; i < results.length; i++) {
       var animalDiv = $("<div class=\"animal-item\">");
-
       var rating = results[i].rating;
-
       var p = $("<p>").text("Rating: " + rating);
-
       var animated = results[i].images.fixed_height.url;
       var still = results[i].images.fixed_height_still.url;
 
@@ -58,7 +57,7 @@ $(document).on("click", ".animal-button", function() {
     }
   });
 });
-
+//On.click event to change gifs from still to animate
 $(document).on("click", ".animal-image", function() {
 
   var state = $(this).attr("data-state");
@@ -72,7 +71,7 @@ $(document).on("click", ".animal-image", function() {
     $(this).attr("data-state", "still");
   }
 });
-
+//On.click event to add to main div
 $("#add-animal").on("click", function(event) {
   event.preventDefault();
   var newAnimal = $("input").eq(0).val();
@@ -81,9 +80,9 @@ $("#add-animal").on("click", function(event) {
     animals.push(newAnimal);
   }
 
-  populateButtons(animals, "animal-button", "#animal-buttons");
+  addButtons(animals, "animal-button", "#animal-buttons");
 
 });
-
-populateButtons(animals, "animal-button", "#animal-buttons");
+//Calledthe addButtons function
+addButtons(animals, "animal-button", "#animal-buttons");
 });
