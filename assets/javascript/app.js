@@ -26,7 +26,7 @@ $(document).on("click", ".animal-button", function() {
 
 //Query to the Giphy API
   var type = $(this).attr("data-type");
-  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + type + "&limit=10&api_key=itTkLNd9VySjmRs9AtyZND1gkhoNKanq";
+  var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + type + "&limit=10&api_key=itTkLNd9VySjmRs9AtyZND1gkhoNKanq";
 
   //Ajax call to pull in new animal
   $.ajax({
